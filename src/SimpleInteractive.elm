@@ -9,7 +9,7 @@ type Action = Reset | Inc | Dec | Double | Half | Fib
 fib : Int -> Int
 fib n = if n < 2 then n else fib (n-1) + fib (n-2)
 
-update : Action -> Model -> Model
+update : Action -> Int -> Int
 update msg model =
     case msg of
         Reset -> 0
@@ -19,7 +19,7 @@ update msg model =
         Half -> model // 2
         Fib -> fib model
 
-view : Model -> Html Action
+view : Int -> Html Action
 view model =
     div [] [
         div [] [ text (toString model) ],
