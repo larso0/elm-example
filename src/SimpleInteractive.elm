@@ -2,16 +2,12 @@ import Html exposing (..)
 import Html.App as App
 import Html.Events exposing (onClick)
 
-main = App.beginnerProgram { model = model, view = view, update = update }
-
-type alias Model = Int
-model : Model
-model = 0
+main = App.beginnerProgram { model = 0, view = view, update = update }
 
 type Action = Reset | Inc | Dec | Double | Half | Fib
 
 fib : Int -> Int
-fib n = if n < 2 then n else (fib (n-1)) + (fib (n-2))
+fib n = if n < 2 then n else fib (n-1) + fib (n-2)
 
 update : Action -> Model -> Model
 update msg model =
